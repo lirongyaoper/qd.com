@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const calculator= (
+            function(){
+                let memory = 0;
+                return{
+                    add: function(a,b){
+                        memory = a + b;
+                        return memory;
+                    },
+                    subtract: function(a,b){
+                        memory = a -b;
+                        return memory;
+                    },
+                    getMemory: function(){
+                        return memory;
+                    }
+                };
+            }
+        )();
+
+        console.log(calculator.add(5,3));
+        console.log(calculator.subtract(5,3));
+    </script>
+</body>
+</html>

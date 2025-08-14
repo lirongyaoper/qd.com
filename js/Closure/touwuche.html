@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包事务处理示例 - 购物车</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .product {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        .counter {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .count {
+            margin: 0 10px;
+            min-width: 30px;
+            text-align: center;
+        }
+        #cart-total {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>商品列表</h1>
+    
+    <div class="product" id="product1">
+        <h2>商品A</h2>
+        <p>价格: ¥100</p>
+        <div class="counter">
+            <button class="decrease">-</button>
+            <span class="count">0</span>
+            <button class="increase">+</button>
+        </div>
+    </div>
+    
+    <div class="product" id="product2">
+        <h2>商品B</h2>
+        <p>价格: ¥200</p>
+        <div class="counter">
+            <button class="decrease">-</button>
+            <span class="count">0</span>
+            <button class="increase">+</button>
+        </div>
+    </div>
+    
+    <div id="cart-total">总价: ¥0</div>
+
+    <script>
+        // 使用闭包创建商品计数器
+        function createProductCounter(productId, price) {
+            let count = 0;
+            const countElement = document.querySelector(`#${productId} .count`);
+            const increaseBtn = document.querySelector(`#${productId} .increase`);
+            const decreaseBtn = document.querySelector(`#${productId} .decrease`);
+            
+            // 更新显示的函数
+            function updateDisplay() {
+                countElement.textContent = count;
+                updateTotal();
+            }
+            
+            // 增加数量
+            function increase() {
+                count++;
+                updateDisplay();
+            }
+            
+            // 减少数量
+            function decrease() {
+                if (count > 0) {
+                    count--;
+                    updateDisplay();
+                }
+            }
+            
+            // 获取当前总价
+            function getTotal() {
+                return count * price;
+            }
+            
+            // 添加事件监听器
+            increaseBtn.addEventListener('click', increase);
+            decreaseBtn.addEventListener('click', decrease);
+            
+            // 返回公共方法
+            return {
+                getTotal: getTotal
+            };
+        }
+        
+        // 创建商品计数器实例
+        const product1 = createProductCounter('product1', 100);
+        const product2 = createProductCounter('product2', 200);
+        
+        // 更新总价
+        function updateTotal() {
+            const total = product1.getTotal() + product2.getTotal();
+            document.getElementById('cart-total').textContent = `总价: ¥${total}`;
+        }
+        
+        // 初始化总价显示
+        updateTotal();
+    </script>
+</body>
+</html>

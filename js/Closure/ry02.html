@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 保持变量的状态是闭包的一个重要特性。
+        function createCounter(){
+            let count = 0;
+            return{
+                increment: ()=> count++,
+                decrement: ()=> count--,
+                getValue: ()=> count
+            }
+        }
+        const counter = createCounter();
+        counter.increment();
+        counter.increment();
+        console.log(counter.getValue()); // 2
+        counter.decrement();
+        console.log(counter.getValue()); // 1
+        counter.increment();
+        console.log(counter.getValue()); // 2
+    </script>
+</body>
+</html>
