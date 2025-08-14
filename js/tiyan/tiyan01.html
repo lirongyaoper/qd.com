@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            text-align: center;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h2>我的第一段javascript</h2>
+    <button type="button" onclick="myFunction()">点击我可显示日期及时间</button>
+    <script>
+        function myFunction() {
+            document.getElementById("demo").innerHTML = Date();
+        }
+    </script>
+    <p id="demo"></p>
+</body>
+</html>
