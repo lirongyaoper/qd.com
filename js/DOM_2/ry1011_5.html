@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var oBtn = document.getElementById("btn");
+            var oFruit = document.getElementsByName("fruit");
+            var str = "";
+            oBtn.onclick = function(){
+                for(var i =0; i < oFruit.length; i++){
+                    if(oFruit[i].checked){
+                        str += oFruit[i].value+ "&";
+                    }
+                }
+                alert(str);
+            };
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <label for=""><input type="checkbox" name="fruit" value="苹果" checked="checked" />苹果</label>
+        <label for=""><input type="checkbox" name="fruit" value="香蕉">香蕉</label>
+        <label for=""><input type="checkbox" name="fruit" value="橘子">橘子</label>
+        <label for=""><input type="checkbox" name="fruit" value="梨子">梨子</label>
+    </div>
+    <input id="btn" type="button" value="获取" />
+</body>
+</html>

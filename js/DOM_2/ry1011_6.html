@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var oBtn = document.getElementById("btn");
+            var oSelect = document.getElementById("select");
+            oBtn.onclick = function(){
+                alert(oSelect.value);
+            }
+        }
+    </script>
+</head>
+<body>
+    <select name="fruit" id="select">
+        <option value="苹果">苹果</option>
+        <option value="香蕉">香蕉</option>
+        <option value="橘子">橘子</option>
+        <option value="梨子">梨子</option>
+    </select>
+    <input id="btn" type="button" value="获取" />
+</body>
+</html>

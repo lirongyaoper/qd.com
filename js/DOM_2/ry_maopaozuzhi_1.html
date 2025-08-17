@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <a id="mylink" href="https://www.lirongyaoper.com"><span id="linkText">点击链接</span></a>
+    </div>
+    <script>
+        document.getElementById("linkText").addEventListener('click',(event)=>{
+            event.preventDefault(); // 阻止默认行为
+            event.stopPropagation(); // 阻止事件冒泡
+            console.log("链接被点击，但默认行为被阻止");
+        });
+        document.getElementById('mylink').addEventListener('click',()=>{
+            console.log("这个不会执行");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="grandparent" style="padding: 40px; background: #eee;">
+        <div id="parent" style="padding: 30px; background: #ccc;">
+            <div id="child" style="padding: 20px; background: #999;">
+            点击我
+            </div>
+        </div>
+    </div>   
+    <script>
+  const elements = ['grandparent', 'parent', 'child'];
+        elements.forEach(
+            id =>{
+                const el = document.getElementById(id);
+                el.addEventListener('click',()=>{
+                    console.log(`捕获阶段：${id}`);
+                },true);
+                el.addEventListener('click',()=>{
+                    console.log(`冒泡阶段：${id}`);
+                },false);
+            }
+        );
+  
+    </script> 
+</body>
+</html>

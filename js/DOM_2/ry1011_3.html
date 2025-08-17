@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload  = function(){
+            var btn = document.getElementById("mybtn");
+            btn.onclick = function(){
+                var oTxt = document.getElementById("mytext");
+                alert(oTxt.value);
+            }
+        }
+    </script>
+</head>
+<body>
+    <input id="mytext" type="text" />
+    <input id="mybtn" type="button" value="Click Me" />
+</body>
+</html>

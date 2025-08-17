@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var oInput = document.createElement('input');
+            oInput.id = "submit";
+            oInput.type = "button";
+            oInput.value = "提交";
+            document.body.appendChild(oInput);
+            oInput.onclick = function(){
+                alert(oInput.id);
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
